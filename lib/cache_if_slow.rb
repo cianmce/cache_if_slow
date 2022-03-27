@@ -10,8 +10,8 @@ class CacheIfSlow
     @logger = logger
     if expiry_lookup.present?
       expiry_lookup.each do |v|
-        raise ArgumentError, '`slower_than` if required for all entries in `expiry_lookup`' if v[:slower_than].blank?
-        raise ArgumentError, '`expires_in` if required for all entries in `expiry_lookup`' if v[:expires_in].blank?
+        raise ArgumentError, "`slower_than` if required for all entries in `expiry_lookup`" if v[:slower_than].blank?
+        raise ArgumentError, "`expires_in` if required for all entries in `expiry_lookup`" if v[:expires_in].blank?
       end
       @expiry_lookup = expiry_lookup.sort_by { |v| -v[:slower_than] }
     end
@@ -19,11 +19,11 @@ class CacheIfSlow
 
   def fetch(name, max_seconds: nil, **options)
     unless block_given?
-      raise ArgumentError, 'Missing block: Calling `CacheIfSlow#fetch` requires a block.'
+      raise ArgumentError, "Missing block: Calling `CacheIfSlow#fetch` requires a block."
     end
 
     if @expiry_lookup.blank? && max_seconds.nil?
-      raise ArgumentError, '`max_seconds` is required if `expiry_lookup` is not present.'
+      raise ArgumentError, "`max_seconds` is required if `expiry_lookup` is not present."
     end
     max_seconds = @expiry_lookup[-1][:slower_than] if max_seconds.nil? || @expiry_lookup[-1][:slower_than] < max_seconds
 
@@ -45,7 +45,7 @@ class CacheIfSlow
 
   class << self
     def fetch(name, max_seconds:, **options, &block)
-      self.new.fetch(name, max_seconds: max_seconds, **options, &block)
+      new.fetch(name, max_seconds: max_seconds, **options, &block)
     end
   end
 
