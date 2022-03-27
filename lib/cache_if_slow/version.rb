@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-module CacheIfSlow
+class CacheIfSlow
   VERSION = "0.0.1"
 end
