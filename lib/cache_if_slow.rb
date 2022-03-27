@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "active_support"
+require "rails"
 require "cache_if_slow/version"
 
 class CacheIfSlow
@@ -37,7 +37,7 @@ class CacheIfSlow
     if total_time > max_seconds && @cache.read(name, options).nil?
       expires_in = lookup_expiry(total_time, options)
       options[:expires_in] = expires_in
-      @logger.info "CacheIfSlow :: Storing #{name} as #{total_time} > #{max_seconds} expires_in: #{expires_in}"
+      @logger.info "CacheIfSlow :: Storing '#{name}' as #{total_time} > #{max_seconds} expires_in: #{expires_in}"
       @cache.write(name, value, options)
     end
     value
