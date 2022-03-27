@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Cian McElhinney"]
   spec.email = ["cache_if_slow@cme.33mail.com"]
 
-  spec.summary = "TODO...."
-  spec.description = "TODO...."
+  spec.summary = "Auto cache slow requests."
+  spec.description = "Auto cache slow requests or blocks of code."
   spec.homepage = "https://github.com/cianmce/cache_if_slow"
   spec.license = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
