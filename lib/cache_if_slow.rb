@@ -4,7 +4,6 @@ require "rails"
 require "cache_if_slow/version"
 
 class CacheIfSlow
-  attr_accessor :logger
   def initialize(cache: Rails.cache, expiry_lookup: nil, logger: Rails.logger)
     @cache = cache
     @logger = logger

@@ -19,7 +19,7 @@ RSpec.describe CacheIfSlow do
   let(:value) { {response: "value"} }
   let(:block_of_code) do
     proc do
-      puts "sleeping for #{delay_seconds}"
+      logger.info "sleeping for #{delay_seconds}"
       Kernel.sleep delay_seconds
       value
     end
