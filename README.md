@@ -99,3 +99,4 @@ Everyone interacting in the cache_if_slow project's codebases, issue trackers, c
 ## TODO
 
 - [ ] Update Readme and spec with class method examples
+
