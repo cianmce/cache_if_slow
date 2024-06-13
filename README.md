@@ -37,7 +37,8 @@ def self.cache
     { slower_than: 1.second, expires_in: 10.minutes },
     { slower_than: 5.seconds, expires_in: 20.minutes },
     { slower_than: 10.seconds, expires_in: 30.minutes }
-  ])
+  ],
+  callback: -> (opts) { Sentry.capture_message('Slow Method') })
 end
 ```
 
