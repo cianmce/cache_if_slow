@@ -4,9 +4,10 @@ require "rails"
 require "cache_if_slow/version"
 
 class CacheIfSlow
-  def initialize(cache: Rails.cache, expiry_lookup: nil, logger: Rails.logger)
+  def initialize(cache: Rails.cache, expiry_lookup: nil, logger: Rails.logger, callback: nil)
     @cache = cache
     @logger = logger
+    @callback = callback
     if expiry_lookup.present?
       expiry_lookup.each do |v|
         raise ArgumentError, "`slower_than` if required for all entries in `expiry_lookup`" if v[:slower_than].blank?
@@ -38,6 +39,7 @@ class CacheIfSlow
       options[:expires_in] = expires_in
       @logger.info "CacheIfSlow :: Storing '#{name}' as #{total_time} > #{max_seconds} expires_in: #{expires_in}"
       @cache.write(name, value, options)
+      @callback.call(total_time: total_time, expires_in: expires_in) if @callback
     end
     value
   end
