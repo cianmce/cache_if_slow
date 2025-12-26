@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "cache_if_slow"
-require "pry"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

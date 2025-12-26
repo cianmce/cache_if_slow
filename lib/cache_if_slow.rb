@@ -39,7 +39,7 @@ class CacheIfSlow
       options[:expires_in] = expires_in
       @logger.info "CacheIfSlow :: Storing '#{name}' as #{total_time} > #{max_seconds} expires_in: #{expires_in}"
       @cache.write(name, value, options)
-      @callback.call(total_time: total_time, expires_in: expires_in) if @callback
+      @callback&.call(total_time: total_time, expires_in: expires_in)
     end
     value
   end

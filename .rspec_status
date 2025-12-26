@@ -1,6 +1,6 @@
 example_id                              | status | run_time        |
 --------------------------------------- | ------ | --------------- |
-./spec/cache_if_slow_spec.rb[1:1:1:1]   | passed | 0.01516 seconds |
-./spec/cache_if_slow_spec.rb[1:1:2:1:1] | passed | 0.60386 seconds |
-./spec/cache_if_slow_spec.rb[1:1:2:2:1] | passed | 2.1 seconds     |
-./spec/cache_if_slow_spec.rb[1:1:2:3:1] | passed | 0.30454 seconds |
+./spec/cache_if_slow_spec.rb[1:1:1:1]   | passed | 0.00683 seconds |
+./spec/cache_if_slow_spec.rb[1:1:2:1:1] | passed | 0.60679 seconds |
+./spec/cache_if_slow_spec.rb[1:1:2:2:1] | passed | 2.11 seconds    |
+./spec/cache_if_slow_spec.rb[1:1:2:3:1] | passed | 0.30578 seconds |
